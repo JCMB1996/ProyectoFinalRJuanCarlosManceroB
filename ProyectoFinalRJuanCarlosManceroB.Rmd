@@ -1,0 +1,502 @@
+---
+title: "Proyecto Final de R"
+author: "Juan Carlos Mancero Bravo"
+date: "28/11/2019"
+output:
+  html_document:
+    toc: yes 
+    toc_float: yes 
+  rmarkdown::html_document:
+    theme: lumen
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+--------
+
+# Introducción
+
+**¡Bienvenidos!**
+
+Este documento tiene como objetivo recopilar los análisis de los siguientes temas:
+ 
+ 1. Recursos sobre Expresiones Regulares
+    * En este apartado encontrarás la comparación y discusión del uso de expresiones regulares. Serán contestadas las preguntas como:
+        * ¿Cuál es mejor?    
+        * ¿Cuál es peor?
+        * Y sobretodo ¿Por qué?
+        
+ 2. Recursos sobre Markdown
+    * En esta parte se realizará una discusión de los recursos de Markdown más utilizados y su forma de emplear. 
+    
+ 3. Resumen de Datos - Caso de Estudio
+    * En esta sección será presentado un caso de estudio, donde se resuman mediante tablas y gráficos los principales hallazgos sobre la historia del torneo de la Copa del Mundo. En detalle:
+      + A. Ranking
+      + B. Datos Generales y Estadísticoss
+      + C. Premios
+      + D. Rendimiento Selección de Fútbol Brasil en Copas del Mundo
+      + E. Multimedia
+      
+--------
+
+# Desarrollo
+
+
+## 1. Expresiones Regulares
+
+Para este apartado, se realizó la comparación entre estas dos páginas web:
+
+La primera, a la cual denominaremos P1, corresponde a [Expresiones regulares](http://rpubs.com/ydmarinb/429756) redactada por Yubar Daniel Marín Benjumea.
+
+La segunda página web, a la cual llamaremos P2, es [Expresiones regulares en R](http://www.diegocalvo.es/expresiones-regulares-en-r/) escrita por Diego Calvo.
+
+Considero que, independientemente del tema, la redacción de documentos, aún más en los de índole técnica, deben ser escritos de forma de que el autor asuma que los lectores desconocen por completo el tema.
+
+Por ello, al ser las expresiones regulares confusas a primera vista, y pueda costar familiarizarse con las combinaciones de código, funciones y caracteres. Es imperativo, dejar un contexto del cual se va a hablar más adelante.
+
+Por esta razón, considero que la mejor página web entre las comparadas, es P1. Esto no significa que P2 no posea un contenido relevante, pero en esta comparación, esta queda en segundo plano.
+
+P1 posee índice, en el cual el lector es capaz de evidenciar el alcance del documento, e inclusive filtrar por el contenido de interés. Además, comienza con una breve pero concisa explicación de lo que son las expresiones regulares y de dónde nacen. 
+
+Desde mi punto de vista, es esencial que aquella persona que domina el tema y desea compartir su aprendizaje, deba tener el don de explicar; para ello, existen técnicas. Considero que esta página lo refleja muy bien, pues además de la introducción, se explica con detalle el significado de los caracteres. Específicamente, cuantificadores, alternación, agrupación, barra invertida, signo de admiración y metacaracteres especiales. En adición, muestra con un ejemplo claro, la implementación de lo anteriormente explicado en R.
+Con un ejemplo central, emplea las funciones; a partir de ello, es muy enriquecedor que el autor, deje comentarios de los pasos y explicaciones de cada función y los resultados. De esta manera, el lector es capaz de recibir la información clara, interiorizarla y poder aplicarla posteriormente en algún caso de estudio.
+
+Es importante que la persona, interesada en aprender, realmente entienda el tema, puesto que no es cuestión de reproducir exactamente alguna expresión regular, como podría aparecer en una documentación, sino entender el proceso que realiza para saber el alcance de la función y poder emplearla de manera eficiente.
+
+Precisamente, de esto carece la P2, dado que no posee una explicación previa, y tan sólo muestra ejemplos poco intuitivos de funciones.
+
+Más allá de la forma, es necesario hacer énfasis en el fondo. Es decir, a nivel técnico ambas páginas abarcan gran parte de las expresiones regulares. Sin embargo, la P1 explica con mayor detalle el contenido; mientras que P2, lo hace de manera más resumida.
+
+## 2. Recursos sobre Markdown
+
+Con respecto a los recursos sobre Markdown, es necesario dividir el análisis en dos partes. La primera hace referencia al contenido; la segunda parte, corresponde a la forma, es decir la manera como está expuesta la información, y como el lector es capaz de entender y aprender lo que requiere.
+
+Para ello, se ha comparado dos páginas web:
+
+* 1.  [Guía completa markdown y su integración con R](https://rstudio-pubs-static.s3.amazonaws.com/330387_5a40ca72c3b14824acedceb7d34618d1.html), a la cual llamaremos como P3 de ahora en adelante para mayor facilidad del lector.
+
+* 2. [Markdown Reference](https://commonmark.org/help/), para la cual denominaremos P4.
+
+Con respecto al contenido, P3 posee una guía más completa en comparación a P4. Esta última, muestra un nivel básico en cuanto a las expresiones o recursos de Markdown. Sin embargo, en la práctica, estos recursos no son suficientes para generar un documento .Rmd decente. Por esta razón, considero que P3 tiene un nivel superior en cuánto a su contenido. Presenta una explicación y un ejemplo de cada recurso; de manera que, el lector es capaz de entender la aplicación del mismo. P3 abarca temas que no lo hace P4, como superíndices, tachado, videos, tablas (formatos), identificadores de cabeceras y títulos, código chuncks, ecuaciones, entre otros. En definitiva esta página es más útil, pues además incluye los temas que contiene P4. Es decir, podríamos omitir esa página web como referencia, y quedarnos con P3 que posee, como su nombre lo dice, una guía completa.
+
+Con respecto a la forma, la situación cambia puesto que p4 pose integrado un tutorial con ejercicios. El lector es capaz de leer, entender la información y practicar su aprendizaje; de esta forma se puede evaluar si realmente interioriza lo que aprende. Por otro lado, P3 es más lineal, es decir, te plantea el contenido con explicación y ejemplos pero no te permite evaluar si realmente lo que está explicado funciona y puede ser reproducido por el lector sin problema. Muchas veces la mejor forma de saber si realmente comprendo algún tema es practicándolo. Por ello P4, en cuestión de forma, es el mejor.
+
+Por último, es relevante destacar el tema de la estética, es decir puede variar dependiendo de los autores. A lo que hago referencia, es que existe más de una forma de realizar algún comando. Por ejemplo para poner en *Italic* alguna palabra, puede ejecutarse de dos formas, ya sea rodeando la palabra con un * (al comienzo y al final), ó con un _ . Desde mi punto de vista, la estética es muy importante, pues dice mucho del autor con respecto a la organización y detalle. Por ello, es importante que se establezca un plantilla sobre la cual se sigan los mismos lineamientos.
+
+
+## 3. Resumen de Datos - Caso de Estudio
+
+A continuación se presentarán las estadísticas relevantes a la Copa del Mundo, en función de equipos campeones.
+
+El torneo de la [Copa Mundial de Fútbol](https://es.wikipedia.org/wiki/Copa_Mundial_de_F%C3%BAtbol), organizado por la FIFA, es el campeonato oficial de fútbol masculino más importante. Cada cuatro años, las selecciones de cada país se dan cita en una sede para disputar el título.
+
+Uno de los jugadores más destacados a nivel de clubes y selección nacional, fue el brasileño [**Pelé**](https://en.wikipedia.org/wiki/Pel%C3%A9), quien resalta la importancia de este torneo:
+
+
+> "The World Cup is a very important way to measures the good players, and the great ones. Its a test of a great player" .- *Pelé*
+
+
+
+El trofeo posee un diseño íconico, con un peso aproximado de 6,124 kilogramos.
+
+
+![](https://cdn.forbes.com.mx/2017/12/copa-del-mundo-futbol-640x360.jpg)
+
+
+Se han disputado por veintiún ocasiones el torneo, con distintas sedes. En 1930, en Uruguay, fue el primer campeonato en la historia. La última sede fue Rusia, en el 2018. Por dos ocaciones no fue posible jugar el torneo por la crisis generada por la Segunda Guerra Mundial, esto fue en 1942 y 1946.
+
+### A. Ranking
+
+En cuánto a los ganadores, tan sólo siete países han logrado coronarse como campeones del mundo.  A continuación, un resumen de sus actuaciones:
+
+```{r include=FALSE}
+library(rvest)
+
+```
+
+```{r echo=FALSE}
+url.fifa <- "https://en.wikipedia.org/wiki/FIFA_World_Cup"
+tmp <- read_html(url.fifa)
+tmp <- html_nodes(tmp, "table")
+
+#sapply(tmp, function(i) dim(html_table(i, fill = TRUE)))
+
+fifa <- html_table(tmp[[8]])
+mi.fifa<- fifa
+
+colnames(mi.fifa)[1:13] <- c("Ranking",
+                             "Equipo",
+                             "Participaciones",
+                             "Partidos.Jugados",
+                             "Partidos.Ganados",
+                             "Partidos.Empatados",
+                             "Partidos.Perdidos",
+                             "Goles.A.Favor",
+                             "Goles.En.Contra",
+                             "Gol.Diferencia",
+                             "Puntos",
+                             "Promedio.Puntos",
+                             "Trofeos")
+mi.fifa[1,2]<- "Brasil"
+mi.fifa[2,2]<- "Alemania"
+mi.fifa[3,2]<- "Italia"
+mi.fifa[5,2]<- "Francia"
+mi.fifa[6,2]<- "Inglaterra"
+mi.fifa[7,2]<- "España"
+
+mi.fifa$Promedio.Puntos <- NULL
+#DT::datatable(mi.fifa)
+
+campeon <- cbind.data.frame(mi.fifa$Equipo, mi.fifa$Trofeos)
+campeon <- campeon[order(-campeon$`mi.fifa$Trofeos`),]
+colnames(campeon)[1:2]<-c("Equipo","Campeonatos")
+DT::datatable(campeon)
+```
+
+
+***Campeonatos Mundiales de Brasil***
+
+Como podemos evidenciar, Brasil posee 5 títulos, siendo este el país más representativo en esta competición. El "Pentacampeón" consiguió sus títulos en :
+
+* 2002
+* 1994
+* 1970
+* 1962
+* 1958
+
+Por otra parte, en los últimos años, las selecciones europeas son quienes destacan sobre las demás, puesto que en los últimos 4 mundiales han conseguido consagrarse campeones del mundo:
+
+
+|Campeón |Año |
+|--------|----|
+|Francia |2018|
+|Alemania|2014|
+|España  |2010|
+|Italia  |2006|
+
+
+A continuación, se presenta un gráfico donde es posible distinguir aquellos equipos que poseen copas por encima del promedio.
+
+```{r, echo=FALSE}
+library(ggplot2)
+
+ggplot() + 
+  geom_bar(data=campeon,aes(x=Equipo, y=Campeonatos), stat='identity', position='dodge') +
+  coord_flip() + 
+  theme_bw() + 
+  theme(panel.background = element_rect(fill = "lightblue")) + 
+  ggtitle("Copas de Mundo por Equipos") +
+  geom_hline(yintercept = mean(campeon$Campeonatos), color="red")
+
+```
+
+Tan sólo Brasil, Alemania e Italia poseen más copas que el promedio. Es por esto que estas selecciones, independientemente de su nivel futbolístico, siempre serán los favoritos para llegar a la final y pelear por un nuevo título.
+
+
+### B. Datos Generales
+
+En función a estos equipos, se presenta, a continuación, un resumen de los datos generales que ha dejado sus participaciones en la Copa Mundial de Fútbol.
+
+En cuanto a participaciones los equipos han llegado al torneo, en promedio:
+
+```{r, echo=FALSE}
+print(promedio_participaciones <- mean(mi.fifa$Participaciones))
+```
+
+En resumen:
+```{r, echo=FALSE}
+
+partidos<-mi.fifa[2:7]
+DT::datatable(partidos)
+
+```
+
+Según la tabla anterior, el equipo que más participaciones tiene es:
+
+```{r, echo=FALSE}
+
+partidos<- partidos[order(-partidos$Participaciones),]
+partidos[1,1]
+
+```
+
+El equipo que más partidos jugados tiene es:
+
+```{r, echo=FALSE}
+
+partidos<- partidos[order(-partidos$Partidos.Jugados),]
+partidos[1,1]
+
+```
+
+**Nota**:En el caso de existir empate en el número de partidos jugados, se considera la variable partidos ganados para romper el empate.
+
+En consecuencia, se presenta una tabla con las tasas de partidos, relacionando las variables anteriores:
+
+```{r, echo=FALSE}
+
+tasas.partidos <- partidos
+
+tasas.partidos$Probabilidad.Victoria <- tasas.partidos$Partidos.Ganados / tasas.partidos$Partidos.Jugados
+  
+tasas.partidos$Probabilidad.Empate <- tasas.partidos$Partidos.Empatados / tasas.partidos$Partidos.Jugados
+  
+tasas.partidos$Probabilidad.Derrota <- tasas.partidos$Partidos.Perdidos / tasas.partidos$Partidos.Jugados
+  
+tasas.partidos$TasaVictoria <- tasas.partidos$Partidos.Ganados / tasas.partidos$Partidos.Perdidos
+  
+tasas.partidos[2:6] <- NULL
+
+DT::datatable(tasas.partidos)
+  
+```
+
+Descripción de Variables[^1]
+
+Es decir:
+
+* La Relación Partidos Ganados con Partidos Jugados (Probabilidad.Victoria), supone, por ejemplo, para España, la probabilidad de que gané un partido es:
+
+```{r, echo=FALSE}
+
+tasas.partidos[tasas.partidos$Equipo == "España", 2]
+
+```
+
+* La Relación Partidos Ganados con Partidos Perdidos (TasaVictoria), supone, por ejemplo, para Uruguay que por cada un partido perdido, la selección de la 'Garra Charrúa' gana:
+
+```{r, echo=FALSE}
+
+tasas.partidos[tasas.partidos$Equipo == "Uruguay", 5 ]  
+
+```
+
+
+En cuanto a goles, los equipos registran los siguientes datos:
+
+```{r, echo=FALSE}
+
+goles<-cbind.data.frame(mi.fifa$Equipo,
+                           mi.fifa$Goles.A.Favor,
+                           mi.fifa$Goles.En.Contra,
+                           mi.fifa$Gol.Diferencia)
+
+colnames(goles)[1:4]<-c("Equipo","Goles.A.Favor","Goles.En.Contra","Gol.Diferencia")
+
+DT::datatable(goles)
+
+```
+
+En el siguiente gráfico, se muestran los goles anotados y recibidos por selección, en el es posible evidenciar que todos los equipos tienen gol diferencia mayor a cero. 
+
+``` {r, echo=FALSE}
+library(reshape2)
+
+golesgraf <- cbind.data.frame(goles$Equipo,
+                              goles$Goles.A.Favor,
+                              goles$Goles.En.Contra)
+
+colnames(golesgraf)[1:3]<-c("Equipo","Goles.A.Favor","Goles.En.Contra")
+
+golesmelt <- melt(golesgraf, id.vars = c("Equipo"))
+  
+ggplot(golesmelt, aes(x = variable, y = value))+
+  geom_bar(stat="identity") +
+  facet_wrap(~ Equipo)+ 
+  coord_flip()+
+  ggtitle("Comparación de Goles Anotados y Recibidos")+
+  xlab("Tipo")+
+  ylab("Cantidad")+
+  theme_bw()+ 
+  theme(panel.background = element_rect(fill = "lightblue"))
+
+```
+
+Considerando que el Gol Diferencia se calcula:       $Gol Diferencia = Goles A Favor - Goles En Contra$
+
+En consecuencia, se presenta una tabla relacionando las variables anteriores:
+
+```{r, echo=FALSE}
+
+tasas.goles <- goles
+
+tasas.goles$Tasa.Gol <- tasas.goles$Goles.A.Favor / tasas.goles$Goles.En.Contra
+
+tasas.goles$Goles.Por.Partido <- tasas.goles$Goles.A.Favor / partidos$Partidos.Jugados
+
+tasas.goles[2:4] <- NULL
+
+DT::datatable(tasas.goles)
+  
+```
+
+Descripción de Variables[^2]
+
+Es decir:
+
+* La Relación Goles a Favor con Goles en Contra (Tasa.Gol), supone por ejemplo, para Alemania por cada un gol recibido, la selección alemana anota:
+
+```{r, echo=FALSE}
+
+tasas.goles[tasas.goles$Equipo == "Alemania", 2 ]  
+
+```
+
+Por otra parte, los equipos presentan datos por partidos, es decir:
+
+* Goles por Partido, que representa la relación entre goles anotados con los partidos jugados, es decir, para el caso de Italia, estadísticamente, por cada partido jugado anotan la siguiente cantidad de goles:
+
+```{r, echo=FALSE}
+
+tasas.goles[tasas.goles$Equipo == "Italia", 3 ]  
+
+```
+
+
+### C. Premios
+
+Según el diario ['La Información'](https://www.lainformacion.com/), en su artículo ["Cuánto dinero se llevará el campeón del Mundial... y otros detalles de la final"](https://www.lainformacion.com/deporte/mundial-rusia-2018-cuanto-dinero-gana-el-campeon/6352385/) publicado el 14 de Julio de 2018, menciona que el campeón del torneo se hace acreedor a 32.5 millones de euros.
+
+```{r warning=TRUE, include=FALSE}
+
+library(rjson)
+
+currency <- readLines("https://api.exchangeratesapi.io/latest")
+moneda <- fromJSON(currency)
+
+coin <- moneda[[1]] 
+
+```
+
+Este premio, con base euros, representa en otras monedas:
+
+NOTA: Se consideraron 4 monedas representativas para ejemplificar lo antes expuesto.
+
+* Dólares Americanos (USD)
+```{r, echo=FALSE}
+
+res<- coin[["USD"]]
+tmp<-as.integer(res*32500000)
+tmp
+
+```
+
+* Dólares Canadienses (CAD)
+```{r, echo=FALSE}
+
+res<- coin[["CAD"]]
+tmp<-as.integer(res*32500000)
+tmp 
+
+```
+
+* Libras Esterlinas (GBP)
+```{r, echo=FALSE}
+
+res<- coin[["GBP"]]
+tmp<-as.integer(res*32500000)
+tmp
+
+```
+
+* Reales (BRL)
+```{r, echo=FALSE}
+
+res<- coin[["BRL"]]
+tmp<-as.integer(res*32500000)
+tmp
+
+```
+
+### D. Rendimiento Selección de Fútbol Brasil en Copas del Mundo
+
+Se plantea, revisar, puntualmente, el [rendimiento de la Selección de Fútbol Brasil en Copas del Mundo](https://es.wikipedia.org/wiki/Selecci%C3%B3n_de_f%C3%BAtbol_de_Brasil#Copa_Mundial_de_F%C3%BAtbol). Para ello se consideran las siguientes variables:
+
+```{r include=FALSE}
+
+library(xts)
+library(dygraphs)
+
+
+url.brasil <- "https://es.wikipedia.org/wiki/Selecci%C3%B3n_de_f%C3%BAtbol_de_Brasil"
+b <- read_html(url.brasil)
+br <- html_nodes(b, "table")
+
+sapply(br, function(i) dim(html_table(i, fill = TRUE)))
+
+brasil <- html_table(br[[11]])
+brasil
+
+mi.brasil <- brasil
+
+mi.brasil[2:3] <- NULL
+mi.brasil[3:5] <- NULL
+mi.brasil[4:5] <- NULL
+mi.brasil[5:6] <- NULL
+
+mi.brasil<-mi.brasil[1:21,1:4]
+
+colnames(mi.brasil)[1]<-c("Ano")
+mi.brasil$Ano <- as.Date(mi.brasil$Ano, "%Y")
+
+pj <- mi.brasil[1:2]
+gf <- mi.brasil[1:3]
+gf$PJ <- NULL
+points <- mi.brasil[1:4]
+points[2:3]<- NULL
+
+pj_xts <- xts(pj$PJ,order.by=pj$Ano,frequency=365)
+gf_xts <- xts(gf$GF,order.by=gf$Ano,frequency=365)
+points_xts <- xts(points$Pts.,order.by=points$Ano,frequency=365)
+
+tabla.brasil<- cbind(gf_xts,pj_xts,points_xts)
+
+colnames(tabla.brasil)[1:3]<-c("GolAFavor","PartidosJugados","Puntos")
+
+
+```
+
+* Año
+* Partidos Jugados
+* Goles a Favor
+* Puntos
+
+```{r, echo=FALSE}
+
+dygraph(tabla.brasil, main = "Rendimiento de la Selección de Fútbol 
+        Masculina de Brasil") %>%
+  dyAxis("y", label = "Cantidad",
+         valueRange = c(0, 28)) %>%
+  dyAxis("x", label = "Año") %>%
+  dyRangeSelector()%>%
+  dyOptions(colors = c("blue","red","green"))%>%
+  dyOptions(axisLineWidth = 2.5, 
+            fillGraph = TRUE, 
+            drawGrid = TRUE,
+            gridLineColor = "lightblue")
+
+```
+
+### E. Multimedia
+
+Fanáticos del fútbol han publicado, en YouTube, todos los goles de la última edición de la Copa del Mundo, realizada en Rusia en el 2018.
+
+<center><iframe width="560" height="315" src="https://www.youtube.com/embed/nI0_wDMDDhQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><center>
+
+---
+
+[^1]: 
+|Variable|Descripción|
+|-|-|
+|Probabilidad.Victoria|Relación entre partidos ganados con el total de partidos jugados. Indicador debe estar entre 0 y 1.|
+|Probabilidad.Empate|Relación entre partidos empatados con el total de partidos jugados. Indicador debe estar entre 0 y 1.|
+|Probabilidad.Derrota|Relación entre partidos perdidos con el total de partidos jugados. Indicador debe estar entre 0 y 1.|
+|Tasa Victoria|Relación entre los partidos ganados con los partidos perdidos|
+
+[^2]:
+|Variable|Descripción|
+|-|-|
+|Tasa.Gol| Relación entre los goles anotados con los recibidos.|
+|Goles.Por.Partido|Relación entre los goles anotados con los partidos jugados|
